@@ -99,6 +99,6 @@ df_encoded = pd.get_dummies(df,
                             columns=['manufacturer', 'fuel', 'transmission', 'drive', 'type', 'paint_color', 'state'],
                             drop_first=True)
 
-print("Dimensiunea după codificare:", df_encoded.shape)
+print("Dimensiunea dupa codificare:", df_encoded.shape)
 
 
