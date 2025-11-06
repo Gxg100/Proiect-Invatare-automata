@@ -13,11 +13,11 @@ df = pd.read_csv("vehicles.csv")
 
 
 print("Dimensiunea datasetului:", df.shape)
-print("\nPrimele 5 înregistrări:")
+print("\nPrimele 5 inregistrari:")
 print(df.head())
 
 
-print("\nInformații despre tipurile de date:")
+print("\nInformatii despre tipurile de date:")
 df.info()
 
 print("\nStatistici descriptive:")
@@ -38,9 +38,9 @@ df = df[(df['price'] > 1000) & (df['price'] < 200000)]
 
 plt.figure(figsize=(8,5))
 sns.histplot(df['price'], bins=50, kde=True)
-plt.title('Distribuția prețurilor mașinilor')
-plt.xlabel('Preț ($)')
-plt.ylabel('Frecvență')
+plt.title('Distributia preturilor masinilor')
+plt.xlabel('Pret ($)')
+plt.ylabel('Frecventa')
 plt.show()
 
 
@@ -48,15 +48,15 @@ plt.show()
 
 plt.figure(figsize=(10,6))
 sns.countplot(y='manufacturer', data=df, order=df['manufacturer'].value_counts().index[:10])
-plt.title('Top 10 producători de mașini')
-plt.xlabel('Număr anunțuri')
-plt.ylabel('Producător')
+plt.title('Top 10 producatori de masini')
+plt.xlabel('Numar anunturi')
+plt.ylabel('Producator')
 plt.show()
 
 
 plt.figure(figsize=(7,5))
 sns.countplot(x='fuel', data=df)
-plt.title('Distribuția tipurilor de combustibil')
+plt.title('Distributia tipurilor de combustibil')
 plt.show()
 
 
@@ -64,34 +64,28 @@ plt.show()
 
 plt.figure(figsize=(7,5))
 sns.boxplot(x='fuel', y='price', data=df)
-plt.title('Preț în funcție de combustibil')
+plt.title('Pret în functie de combustibil')
 plt.show()
 
 
 plt.figure(figsize=(7,5))
 sns.boxplot(x='transmission', y='price', data=df)
-plt.title('Preț în funcție de transmisie')
+plt.title('Pret în functie de transmisie')
 plt.show()
 
 plt.figure(figsize=(8,5))
 sns.boxplot(x='condition', y='price', data=df)
-plt.title('Preț în funcție de starea mașinii')
+plt.title('Pret in functie de starea masinii')
 plt.show()
 
 
 corr = df[['price', 'year', 'odometer']].corr()
 plt.figure(figsize=(6,4))
 sns.heatmap(corr, annot=True, cmap='coolwarm')
-plt.title('Corelații între variabile numerice')
+plt.title('Corelatii intre variabile numerice')
 plt.show()
 
 
-plt.figure(figsize=(8,6))
-sns.scatterplot(x='long', y='lat', hue='price', data=df, palette='viridis', alpha=0.5)
-plt.title('Distribuția geografică a prețurilor')
-plt.xlabel('Longitudine')
-plt.ylabel('Latitudine')
-plt.show()
 
 
 df['fuel'] = df['fuel'].fillna('unknown')
